@@ -12,7 +12,7 @@ export default function Home() {
       <Header />
       <main className="container mx-auto px-5">
         <Banner />
-        {/* <AboutUs /> */}
+        <AboutUs />
         <Categories />
         <FeaturedProducts />
         <Testimonials />

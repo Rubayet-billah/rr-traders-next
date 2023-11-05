@@ -7,7 +7,7 @@ type IProps = {
 
 const SectionHeading = ({ title, subTitle }: IProps) => {
   return (
-    <div className="text-center">
+    <div className="text-center mt-5 md:mt-12">
       <h1 className="text-2xl md:text-4xl lg:text-5xl uppercase font-bold">
         {title}
       </h1>

@@ -8,7 +8,7 @@ const CategoryCard = () => {
 
   return (
     <Card
-      className="max-w-sm hover:scale-[102%] duration-200"
+      className="max-w-sm hover:scale-[102%] duration-200 rounded"
       imgSrc={categoryImage}
       horizontal
     >

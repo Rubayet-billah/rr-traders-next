@@ -48,22 +48,36 @@ const Header = () => {
           <Navbar.Toggle />
         </div>
         <Navbar.Collapse>
-          <Navbar.Link href="#" active>
+          <Navbar.Link className="uppercase lg:mx-3 lg:text-lg" href="#" active>
             Home
           </Navbar.Link>
-          <Navbar.Link href="#">About</Navbar.Link>
-          <Navbar.Link href="#">Services</Navbar.Link>
-          <Navbar.Link href="#">
+          <Navbar.Link className="uppercase lg:mx-3 lg:text-lg" href="#">
+            About
+          </Navbar.Link>
+          <Navbar.Link className="uppercase lg:mx-3 lg:text-lg" href="#">
+            Services
+          </Navbar.Link>
+          <Navbar.Link className="uppercase lg:mx-3 lg:text-lg" href="#">
             {" "}
-            <Dropdown label="Products" dismissOnClick={false} inline>
-              <Dropdown.Item>Dashboard</Dropdown.Item>
-              <Dropdown.Item>Settings</Dropdown.Item>
-              <Dropdown.Item>Earnings</Dropdown.Item>
-              <Dropdown.Item>Sign out</Dropdown.Item>
+            <Dropdown label="PRODUCTS" dismissOnClick={false} inline>
+              <Dropdown.Item className="uppercase lg:text-lg">
+                Dashboard
+              </Dropdown.Item>
+              <Dropdown.Item className="uppercase lg:text-lg">
+                Settings
+              </Dropdown.Item>
+              <Dropdown.Item className="uppercase lg:text-lg">
+                Earnings
+              </Dropdown.Item>
+              <Dropdown.Item className="uppercase lg:text-lg">
+                Sign out
+              </Dropdown.Item>
             </Dropdown>
           </Navbar.Link>
 
-          <Navbar.Link href="#">Contact</Navbar.Link>
+          <Navbar.Link className="uppercase lg:mx-5 lg:text-lg" href="#">
+            Contact
+          </Navbar.Link>
         </Navbar.Collapse>
       </Navbar>
     </div>

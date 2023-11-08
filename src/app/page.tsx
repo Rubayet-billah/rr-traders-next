@@ -1,3 +1,4 @@
+import BannerPageExtra from "@/components/extra/BannerPageExtra";
 import AboutUs from "@/components/home/AboutUs";
 import Banner from "@/components/home/Banner";
 import Categories from "@/components/home/Categories";
@@ -11,7 +12,8 @@ export default function Home() {
     <main>
       <Header />
       <main className="container mx-auto px-5">
-        <Banner />
+        {/* <Banner /> */}
+        <BannerPageExtra />
         <AboutUs />
         <Categories />
         <FeaturedProducts />

@@ -8,21 +8,6 @@ const CategoryCard = () => {
 
   return (
     <>
-      {/* <Card
-        className="max-w-sm hover:scale-[102%] duration-200 rounded"
-        imgSrc={categoryImage}
-        horizontal
-      >
-        <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-          Sanitary
-        </h5>
-        <div>
-          <p className="font-normal text-gray-700 dark:text-gray-400">
-            Luxurious and Fasionable Sanitary Wares
-          </p>
-        </div>
-      </Card> */}
-
       <a
         href="#"
         className="flex flex-col items-center bg-white border border-gray-200 rounded shadow md:flex-row md:max-w-xl hover:scale-[102%] duration-200 hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700"

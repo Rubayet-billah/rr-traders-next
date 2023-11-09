@@ -4,19 +4,20 @@ const FeaturedProductCard = () => {
   return (
     <div>
       <div className="w-full max-w-sm bg-white border border-gray-200 rounded shadow dark:bg-gray-800 dark:border-gray-700">
-        <a href="#">
-          <img
-            className="rounded-t"
-            src="https://loowera.com/uploads/media/o_1h5n47fr2p4ike51bkhk0v14s8a.jpg"
-            alt="product image"
-          />
-        </a>
+        <img
+          className="rounded-t"
+          src="https://loowera.com/uploads/media/o_1h5n47fr2p4ike51bkhk0v14s8a.jpg"
+          alt="product image"
+        />
         <div className="px-5 pb-5">
-          <a href="#">
-            <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white mt-5">
+          <div className="relative">
+            <h5
+              className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white mt-5 hover:text-blue-800 hover:underline duration-100 cursor-pointer"
+              title="View Details"
+            >
               Apple Watch Series 7 GPS, Aluminium Case, Starlight Sport
             </h5>
-          </a>
+          </div>
           <div className="flex items-center mt-2.5 mb-5">
             <svg
               className="w-4 h-4 text-yellow-300 mr-1"

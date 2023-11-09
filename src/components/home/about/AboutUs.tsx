@@ -1,7 +1,7 @@
 import Image from "next/image";
-import SectionHeading from "../utils/SectionHeading";
-import SectionPage from "../utils/SectionPage";
-import AboutUsImage from "../../assests/about-us.png";
+import SectionHeading from "../../utils/SectionHeading";
+import SectionPage from "../../utils/SectionPage";
+import AboutUsImage from "../../../assests/about-us.png";
 
 const AboutUs = () => {
   return (

@@ -1,5 +1,5 @@
-import SectionHeading from "../utils/SectionHeading";
-import SectionPage from "../utils/SectionPage";
+import SectionHeading from "../../utils/SectionHeading";
+import SectionPage from "../../utils/SectionPage";
 import CategoryCard from "./CategoryCard";
 
 const Categories = () => {

@@ -1,5 +1,5 @@
-import SectionHeading from "../utils/SectionHeading";
-import SectionPage from "../utils/SectionPage";
+import SectionHeading from "../../utils/SectionHeading";
+import SectionPage from "../../utils/SectionPage";
 import FeaturedProductCard from "./FeaturedProductCard";
 
 const FeaturedProducts = () => {

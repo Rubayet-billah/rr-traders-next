@@ -1,7 +1,7 @@
 "use client";
 import { Button, Label, Textarea, TextInput } from "flowbite-react";
-import SectionHeading from "../utils/SectionHeading";
-import SectionPage from "../utils/SectionPage";
+import SectionHeading from "../../utils/SectionHeading";
+import SectionPage from "../../utils/SectionPage";
 
 const ContactUsPage = () => {
   return (

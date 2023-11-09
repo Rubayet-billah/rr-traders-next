@@ -1,7 +1,7 @@
 import Image from "next/image";
-import sanitaryImage from "../../assests/sanitary-item-image.jpg";
-import rodImage from "../../assests/iron-rod-image.jpeg";
-import roofingTinImage from "../../assests/roofing-tin.jpg";
+import sanitaryImage from "../../../assests/sanitary-item-image.jpg";
+import rodImage from "../../../assests/iron-rod-image.jpeg";
+import roofingTinImage from "../../../assests/roofing-tin.jpg";
 
 const Banner = () => {
   return (

@@ -3,7 +3,7 @@
 const TestimonialCard = () => {
   return (
     <div>
-      <section className="bg-slate-200 dark:bg-gray-900 rounded-lg">
+      <section className="bg-slate-200 dark:bg-gray-900 rounded">
         <div className="max-w-screen-xl px-4 py-8 mx-auto text-center lg:py-16 lg:px-6">
           <figure className="max-w-screen-md mx-auto">
             <svg

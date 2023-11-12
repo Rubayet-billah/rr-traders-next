@@ -10,7 +10,7 @@ const Testimonials = () => {
         subTitle="Read testimonials from satisfied customers"
       />
       <SectionPage>
-        <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-12">
           <TestimonialCard />
           <TestimonialCard />
           <TestimonialCard />

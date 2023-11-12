@@ -1,14 +1,17 @@
 "use client";
-
+import "flowbite";
 import DashboardCustomersPage from "@/components/dashboard/mainContent/customers/DashboardCustomersPage";
 import DashboardProductsPage from "@/components/dashboard/mainContent/products/DashboardProductsPage";
 import ProductTable from "@/components/dashboard/mainContent/products/ProductTable";
 import DashboardSidebar from "@/components/dashboard/sidebar/Sidebar";
+import brandLogo from "../../../assests/rr-traders-logo.png";
+import Image from "next/image";
+import DashboardOrdersPage from "@/components/dashboard/mainContent/orders/DashboardOrdersPage";
 
 const DashboardLayout = () => {
   return (
-    <div className="">
-      <nav className="fixed top-0 z-50 w-full bg-white border-b border-gray-200 dark:bg-gray-800 dark:border-gray-700">
+    <div className="pt-20">
+      <nav className="fixed top-0 z-50 w-full bg-white border-b border-gray-200 dark:bg-gray-800 dark:border-gray-700 h-20">
         <div className="px-3 py-3 lg:px-5 lg:pl-3">
           <div className="flex items-center justify-between">
             <div className="flex items-center justify-start rtl:justify-end">
@@ -35,14 +38,16 @@ const DashboardLayout = () => {
                 </svg>
               </button>
               <a href="https://flowbite.com" className="flex ms-2 md:me-24">
-                <img
-                  src="https://flowbite.com/docs/images/logo.svg"
-                  className="h-8 me-3"
-                  alt="FlowBite Logo"
+                <Image
+                  src={brandLogo}
+                  className="mr-3"
+                  alt="F"
+                  height={50}
+                  width={200}
                 />
-                <span className="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap dark:text-white">
+                {/* <span className="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap dark:text-white">
                   Flowbite
-                </span>
+                </span> */}
               </a>
             </div>
             <div className="flex items-center">
@@ -128,9 +133,10 @@ const DashboardLayout = () => {
       <DashboardSidebar />
 
       <div className="p-4 sm:ml-64">
-        <div className="p-4 mt-14">
-          {/* <DashboardProductsPage /> */}
-          <DashboardCustomersPage />
+        <div className="p-4">
+          <DashboardProductsPage />
+          {/* <DashboardCustomersPage /> */}
+          {/* <DashboardOrdersPage /> */}
         </div>
       </div>
     </div>

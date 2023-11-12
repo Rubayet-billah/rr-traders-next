@@ -10,11 +10,11 @@ export default function Home() {
   return (
     <main>
       <Header />
-      <main className="container mx-auto px-5">
+      <main>
         <Banner />
-        <AboutUs />
         <Categories />
         <FeaturedProducts />
+        <AboutUs />
         <Testimonials />
         <ContactUsPage />
       </main>

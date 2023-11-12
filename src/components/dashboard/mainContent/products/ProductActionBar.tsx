@@ -29,7 +29,11 @@ const ProductActionBar = () => {
           </button>
         </div>
         <div>
-          <button className="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded text-sm px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800 uppercase ml-auto block">
+          <button
+            data-modal-target="crud-modal"
+            data-modal-toggle="crud-modal"
+            className="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded text-sm px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800 uppercase ml-auto block"
+          >
             Add Product
           </button>
         </div>

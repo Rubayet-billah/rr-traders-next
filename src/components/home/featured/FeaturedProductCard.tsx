@@ -3,7 +3,7 @@
 const FeaturedProductCard = () => {
   return (
     <div>
-      <div className="w-full max-w-sm bg-white border border-gray-200 rounded shadow dark:bg-gray-800 dark:border-gray-700">
+      <div className="w-full max-w-sm bg-white border border-gray-200 rounded shadow hover:scale-[102%] duration-300 dark:bg-gray-800 dark:border-gray-700">
         <img
           className="rounded-t"
           src="https://loowera.com/uploads/media/o_1h5n47fr2p4ike51bkhk0v14s8a.jpg"

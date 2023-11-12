@@ -38,13 +38,13 @@ const DashboardLayout = () => {
                 </svg>
               </button>
               <a href="https://flowbite.com" className="flex ms-2 md:me-24">
-                <Image
+                {/* <Image
                   src={brandLogo}
                   className="mr-3"
                   alt="F"
                   height={50}
                   width={200}
-                />
+                /> */}
                 {/* <span className="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap dark:text-white">
                   Flowbite
                 </span> */}

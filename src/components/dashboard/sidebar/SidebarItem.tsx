@@ -1,9 +1,11 @@
 "use client";
 
+import Link from "next/link";
+
 const SidebarItem = ({ icon, text, link }) => {
   return (
     <li>
-      <a
+      <Link
         href={link}
         className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
       >
@@ -24,7 +26,7 @@ const SidebarItem = ({ icon, text, link }) => {
             {count}
           </span>
         )} */}
-      </a>
+      </Link>
     </li>
   );
 };

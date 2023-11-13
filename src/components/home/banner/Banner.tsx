@@ -24,12 +24,10 @@ const Banner = () => {
           </div>
           <div className="lg:col-span-2 grid place-items-center text-white leading-10">
             <h1 className="text-2xl lg:text-4xl uppercase text-white ">
-              <span className=" text-white">Quality Construction</span> <br />
-              <span className="lg:ml-20 lg:text-3xl text-white">
-                Materials by
-              </span>
+              <span className="">Quality Construction</span> <br />
+              <span className="lg:ml-20 lg:text-3xl">Materials by</span>
               <br />
-              <span className="text-4xl lg:text-6xl font-bold lg:ml-36 text-white">
+              <span className="text-4xl lg:text-6xl font-bold lg:ml-36">
                 RR Traders
               </span>
             </h1>

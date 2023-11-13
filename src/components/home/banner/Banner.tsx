@@ -7,7 +7,7 @@ import bgImage from "../../../assests/banner-bg.png";
 const Banner = () => {
   return (
     <div
-      className="relative bg-[#272f36] py-12 pb-64"
+      className="relative bg-[#434e57] py-12 pb-64"
       style={{
         clipPath: "polygon(0 0, 100% 0, 100% 80%, 0% 100%)",
       }}
@@ -22,12 +22,14 @@ const Banner = () => {
               alt=""
             />
           </div>
-          <div className="lg:col-span-2 grid place-items-center text-white">
-            <h1 className="text-2xl lg:text-4xl uppercase">
-              <span className="">Quality Construction</span> <br />
-              <span className="lg:ml-20 lg:text-3xl">Materials by</span>
+          <div className="lg:col-span-2 grid place-items-center text-white leading-10">
+            <h1 className="text-2xl lg:text-4xl uppercase text-white ">
+              <span className=" text-white">Quality Construction</span> <br />
+              <span className="lg:ml-20 lg:text-3xl text-white">
+                Materials by
+              </span>
               <br />
-              <span className="text-4xl lg:text-6xl font-bold lg:ml-36">
+              <span className="text-4xl lg:text-6xl font-bold lg:ml-36 text-white">
                 RR Traders
               </span>
             </h1>

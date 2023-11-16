@@ -67,7 +67,7 @@ const Header = () => {
             </Dropdown>
           </Navbar.Link>
 
-          <Navbar.Link className="uppercase lg:mx-5" href="#">
+          <Navbar.Link className="uppercase lg:mx-3" href="#">
             Contact
           </Navbar.Link>
         </Navbar.Collapse>

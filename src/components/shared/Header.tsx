@@ -7,8 +7,8 @@ import Image from "next/image";
 
 const Header = () => {
   return (
-    <div>
-      <Navbar fluid rounded>
+    <div className="sticky top-0 z-10 shadow">
+      <Navbar fluid>
         <Navbar.Brand href="">
           <Image
             src={brandLogo}

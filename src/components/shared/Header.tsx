@@ -4,6 +4,7 @@
 import { Avatar, Dropdown, Navbar } from "flowbite-react";
 import brandLogo from "../../assests/rr-traders-logo.png";
 import Image from "next/image";
+import Link from "next/link";
 
 const Header = () => {
   return (
@@ -54,8 +55,8 @@ const Header = () => {
           <Navbar.Link className="uppercase lg:mx-3" href="#">
             About
           </Navbar.Link>
-          <Navbar.Link className="uppercase lg:mx-3" href="#">
-            Services
+          <Navbar.Link className="uppercase lg:mx-3">
+            <Link href="/cart">Cart</Link>
           </Navbar.Link>
           <Navbar.Link className="uppercase lg:mx-3" href="#">
             {" "}

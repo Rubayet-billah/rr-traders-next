@@ -58,6 +58,9 @@ const Header = () => {
           <Navbar.Link className="uppercase lg:mx-3">
             <Link href="/cart">Cart</Link>
           </Navbar.Link>
+          <Navbar.Link className="uppercase lg:mx-3">
+            <Link href="/dashboard">Dashboard</Link>
+          </Navbar.Link>
           <Navbar.Link className="uppercase lg:mx-3" href="#">
             {" "}
             <Dropdown label="PRODUCTS" dismissOnClick={false} inline>

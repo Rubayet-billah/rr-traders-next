@@ -20,7 +20,11 @@ const DashboardSidebar = () => {
       <div className="h-full px-3 pb-4 overflow-y-auto bg-white dark:bg-gray-800">
         <ul className="space-y-2 font-medium">
           <SidebarItem link="/dashboard" icon={<FiHome />} text="Dashboard" />
-          <SidebarItem link="/inbox" icon={<FiInbox />} text="Inbox" />
+          <SidebarItem
+            link="/dashboard/inbox"
+            icon={<FiInbox />}
+            text="Inbox"
+          />
           {/* <SidebarItem
             link="/dashboard/users"
             icon={<FiUsers />}

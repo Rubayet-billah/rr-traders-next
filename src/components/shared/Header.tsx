@@ -11,16 +11,15 @@ const Header = () => {
     <div className="sticky top-0 z-10 shadow">
       <Navbar fluid>
         <Navbar.Brand href="">
-          <Image
-            src={brandLogo}
-            className="mr-3 "
-            alt="F"
-            height={50}
-            width={200}
-          />
-          {/* <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
-            RR Traders
-          </span> */}
+          <Link href="/">
+            <Image
+              src={brandLogo}
+              className="mr-3 "
+              alt="F"
+              height={50}
+              width={200}
+            />
+          </Link>
         </Navbar.Brand>
         <div className="flex md:order-2">
           <Dropdown

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import brandLogo from "../../../assests/rr-traders-logo.png";
+import Link from "next/link";
 
 const DashboardNavbar = () => {
   return (
@@ -29,7 +30,7 @@ const DashboardNavbar = () => {
                 ></path>
               </svg>
             </button>
-            <a href="https://flowbite.com" className="flex ms-2 md:me-24">
+            <Link href="/" className="flex ms-2 md:me-24">
               <Image
                 src={brandLogo}
                 className="mr-3"
@@ -40,7 +41,7 @@ const DashboardNavbar = () => {
               {/* <span className="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap dark:text-white">
             Flowbite
           </span> */}
-            </a>
+            </Link>
           </div>
           <div className="flex items-center">
             <div className="flex items-center ms-3">

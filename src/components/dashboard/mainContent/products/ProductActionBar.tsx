@@ -1,14 +1,26 @@
-import React from "react";
+import ModalContent from "@/components/utils/modals/ModalContent";
+import React, { Dispatch, SetStateAction } from "react";
 
 interface ProductActionBarProps {
-  setModalState: (arg: boolean) => {};
+  setModalState: Dispatch<SetStateAction<boolean>>;
+  setModalContent: Dispatch<SetStateAction<any>>;
 }
 
-const ProductActionBar = ({ setModalState }: ProductActionBarProps) => {
+const ProductActionBar = ({
+  setModalState,
+  setModalContent,
+}: ProductActionBarProps) => {
+  const handleAddProduct = (content: React.ReactElement) => {
+    setModalState(true);
+    setModalContent({ title: "Add New Product", content });
+  };
+
+  const handleAddCategory = () => {};
+
   return (
     <div>
-      <div className="md:flex items-center justify-between mb-4 lg:mb-8">
-        <div className="flex items-center space-x-4 mb-4 lg:mb-0">
+      <div className="md:flex items-center justify-between mb-4 lg:mb-8 space-y-4">
+        <div className="flex items-center space-x-4 lg:mb-0">
           {/* Search input */}
           <input
             type="text"
@@ -32,12 +44,16 @@ const ProductActionBar = ({ setModalState }: ProductActionBarProps) => {
             Filter
           </button>
         </div>
-        <div>
+        <div className="flex items-center gap-3">
           <button
-            // data-modal-target="crud-modal"
-            // data-modal-toggle="crud-modal"
             onClick={() => setModalState(true)}
-            className="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded text-sm px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800 uppercase ml-auto block"
+            className="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded text-sm px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800 uppercase block"
+          >
+            Add Category
+          </button>
+          <button
+            onClick={() => handleAddProduct(<ModalContent />)}
+            className="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded text-sm px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800 uppercase block"
           >
             Add Product
           </button>

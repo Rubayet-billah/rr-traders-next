@@ -5,7 +5,7 @@ import DashboardNavbar from "@/components/dashboard/navbar/DashboardNavbar";
 import DashboardSidebar from "@/components/dashboard/sidebar/DashboardSidebar";
 import CustomerModal from "@/components/utils/modals/CustomerModal";
 
-const DashboardLayout = ({ children }) => {
+const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <div className="pt-20">
       <DashboardNavbar />

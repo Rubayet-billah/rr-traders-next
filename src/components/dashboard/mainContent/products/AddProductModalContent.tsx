@@ -1,5 +1,6 @@
 "use client";
 import FormInput from "@/components/utils/forms/FormInput";
+import FormInputFile from "@/components/utils/forms/FormInputFile";
 import FormInputSelect from "@/components/utils/forms/FormInputSelect";
 import FormTextArea from "@/components/utils/forms/FormTextArea";
 import React from "react";
@@ -59,6 +60,15 @@ const AddProductModalContent = () => {
             options={options}
             register={register}
             required
+          />
+        </div>
+        <div className="col-span-2">
+          <FormInputFile
+            name="image"
+            id="image"
+            label="Product Image"
+            required
+            register={register}
           />
         </div>
         <div className="col-span-2">

@@ -2,6 +2,10 @@
 import { useForm, SubmitHandler } from "react-hook-form";
 import SectionHeading from "../utils/SectionHeading";
 import FormInput from "../utils/forms/FormInput";
+import { useRegisterUserMutation } from "@/redux/features/user/userApi";
+import toast from "react-hot-toast";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 type Inputs = {
   email: string;
@@ -14,20 +18,38 @@ type Inputs = {
 };
 
 const RegisterPage = () => {
+  const router = useRouter();
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<Inputs>();
-  const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data);
+  const [registerUser] = useRegisterUserMutation();
 
+  const handleRegister: SubmitHandler<Inputs> = async (data) => {
+    try {
+      const { repeat_password, ...registrationData } = data;
+      if (data.password !== repeat_password) {
+        throw new Error("Passwords don't match");
+      }
+      const result = await registerUser(registrationData);
+      if (!result?.error) {
+        toast.success("User registered successfully");
+        router.push("/");
+      } else {
+        toast.error(result?.error?.data?.message);
+      }
+    } catch (error) {
+      toast.error(error?.message);
+    }
+  };
   return (
     <div className="container mx-auto my-12">
       <SectionHeading
         title="Register"
         subTitle="Register with your valid information"
       />
-      <form className="mt-5 lg:mt-12" onSubmit={handleSubmit(onSubmit)}>
+      <form className="mt-5 lg:mt-12" onSubmit={handleSubmit(handleRegister)}>
         <FormInput
           type="email"
           name="email"
@@ -86,6 +108,15 @@ const RegisterPage = () => {
             label="Company (Ex. Google)"
             register={register}
           />
+        </div>
+        <div className="text-sm mb-4">
+          Already have an account?{" "}
+          <Link
+            href="/auth/login"
+            className="text-blue-500 uppercase font-bold text-sm"
+          >
+            Login
+          </Link>{" "}
         </div>
         <button
           type="submit"

@@ -1,7 +1,9 @@
+import { authKey } from "@/utils/constants";
+import { getItemFromLocalstorage } from "@/utils/functions";
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  user: null,
+  user: getItemFromLocalstorage(authKey),
 };
 
 const userSlice = createSlice({

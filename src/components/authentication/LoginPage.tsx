@@ -6,6 +6,8 @@ import { useLoginUserMutation } from "@/redux/features/user/userApi";
 import toast from "react-hot-toast";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { setItemToLocalstorage } from "@/utils/functions";
+import { authKey } from "@/utils/constants";
 
 type Inputs = {
   floating_email: string;
@@ -24,11 +26,22 @@ const LoginPage = () => {
   const handleLogin: SubmitHandler<Inputs> = async (data) => {
     try {
       const result = await loginUser(data);
-      if (!result?.error) {
+      if (!("error" in result)) {
         toast.success(result?.data?.message);
+        const userData = result?.data?.data;
+        const { userId, email, firstName, lastName, role } = userData;
+        const userObject = {
+          userId,
+          email,
+          firstName,
+          lastName,
+          role,
+        };
+        setItemToLocalstorage(authKey, userObject);
         router.push("/");
       } else {
-        toast.error(result?.error?.data?.message);
+        // toast.error(result?.error?.data?.message);
+        toast.error("Unable to login");
       }
     } catch (error) {
       toast.error("An error occurred while logging in.");

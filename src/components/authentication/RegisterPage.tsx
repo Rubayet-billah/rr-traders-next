@@ -6,6 +6,8 @@ import { useRegisterUserMutation } from "@/redux/features/user/userApi";
 import toast from "react-hot-toast";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { authKey } from "@/utils/constants";
+import { setItemToLocalstorage } from "@/utils/functions";
 
 type Inputs = {
   email: string;
@@ -33,14 +35,25 @@ const RegisterPage = () => {
         throw new Error("Passwords don't match");
       }
       const result = await registerUser(registrationData);
-      if (!result?.error) {
+      if (!("error" in result)) {
         toast.success("User registered successfully");
+        const userData = result?.data?.data;
+        const { userId, email, firstName, lastName, role } = userData;
+        const userObject = {
+          userId,
+          email,
+          firstName,
+          lastName,
+          role,
+        };
+        setItemToLocalstorage(authKey, userObject);
         router.push("/");
       } else {
-        toast.error(result?.error?.data?.message);
+        // toast.error(result?.error?.data?.message);
+        toast.error("Unable to register");
       }
     } catch (error) {
-      toast.error(error?.message);
+      toast.error("An error occurred while registering");
     }
   };
   return (
@@ -77,7 +90,7 @@ const RegisterPage = () => {
         <div className="grid md:grid-cols-2 md:gap-6">
           <FormInput
             type="text"
-            name="first_name"
+            name="firstName"
             id="floating_first_name"
             label="First name"
             required
@@ -85,7 +98,7 @@ const RegisterPage = () => {
           />
           <FormInput
             type="text"
-            name="last_name"
+            name="lastName"
             id="floating_last_name"
             label="Last name"
             required
@@ -94,8 +107,7 @@ const RegisterPage = () => {
         </div>
         <div className="grid md:grid-cols-2 md:gap-6">
           <FormInput
-            type="tel"
-            pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+            type="text"
             name="phone"
             id="floating_phone"
             label="Phone number (123-456-7890)"

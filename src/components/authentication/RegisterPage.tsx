@@ -9,8 +9,8 @@ import { useRouter } from "next/navigation";
 import { authKey } from "@/utils/constants";
 import { setItemToLocalstorage } from "@/utils/functions";
 import { setUser } from "@/redux/features/user/userSlice";
-import { useDispatch } from "react-redux";
 import { IUser } from "@/interfaces/common";
+import { useAppDispatch } from "@/redux/hooks";
 
 type Inputs = {
   email: string;
@@ -24,7 +24,7 @@ type Inputs = {
 
 const RegisterPage = () => {
   const router = useRouter();
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const {
     register,
     handleSubmit,

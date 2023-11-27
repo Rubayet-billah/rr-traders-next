@@ -5,11 +5,11 @@ import DashboardNavbar from "@/components/dashboard/navbar/DashboardNavbar";
 import DashboardSidebar from "@/components/dashboard/sidebar/DashboardSidebar";
 import CustomerModal from "@/components/utils/modals/CustomerModal";
 import { Toaster } from "react-hot-toast";
-import { useSelector } from "react-redux";
 import { ENUM_USER_ROLE } from "@/enums/user";
+import { useAppSelector } from "@/redux/hooks";
 
 const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
-  const { user } = useSelector((state: any) => state.user);
+  const { user } = useAppSelector((state: any) => state.user);
 
   if (user?.email && user?.role !== ENUM_USER_ROLE.ADMIN) {
     return (

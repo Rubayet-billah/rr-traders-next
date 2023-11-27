@@ -5,15 +5,15 @@ import { Avatar, Dropdown, Navbar } from "flowbite-react";
 import brandLogo from "../../assests/rr-traders-logo.png";
 import Image from "next/image";
 import Link from "next/link";
-import { useDispatch, useSelector } from "react-redux";
 import { ENUM_USER_ROLE } from "@/enums/user";
 import { removeItemFromLocalstorage } from "@/utils/functions";
 import { authKey } from "@/utils/constants";
 import { removeUser } from "@/redux/features/user/userSlice";
+import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 
 const Header = () => {
-  const { user } = useSelector((state: any) => state.user);
-  const dispatch = useDispatch();
+  const { user } = useAppSelector((state: any) => state.user);
+  const dispatch = useAppDispatch();
 
   const handleLogout = () => {
     dispatch(removeUser());

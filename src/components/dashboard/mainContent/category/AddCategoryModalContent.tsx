@@ -2,6 +2,9 @@
 import React from "react";
 import FormInput from "@/components/utils/forms/FormInput";
 import { SubmitHandler, useForm } from "react-hook-form";
+import FormTextArea from "@/components/utils/forms/FormTextArea";
+import { useCreateCategoryMutation } from "@/redux/features/category/categoryApi";
+import toast from "react-hot-toast";
 
 type Inputs = {
   categoryName: string;
@@ -13,7 +16,19 @@ const AddCategoryModalContent = () => {
     handleSubmit,
     formState: { errors },
   } = useForm<Inputs>();
-  const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data);
+  const [createCategory] = useCreateCategoryMutation();
+
+  const onSubmit: SubmitHandler<Inputs> = async (data) => {
+    const result = await createCategory(data);
+
+    if ("error" in result) {
+      toast.error("Error while creating the category");
+    }
+
+    if ("data" in result) {
+      toast.success(result.data.message);
+    }
+  };
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="p-4 md:p-5">
@@ -24,6 +39,15 @@ const AddCategoryModalContent = () => {
             name="categoryName"
             id="categoryName"
             label="Category Name"
+            required
+            register={register}
+          />
+        </div>
+        <div className="col-span-2">
+          <FormTextArea
+            name="categoryDescription"
+            id="categoryDescription"
+            label="Category Descripttion"
             required
             register={register}
           />

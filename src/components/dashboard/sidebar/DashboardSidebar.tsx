@@ -8,7 +8,8 @@ import {
   FiBox,
   FiShoppingCart,
   FiSettings,
-} from "react-icons/fi"; // Update with appropriate icons
+} from "react-icons/fi";
+import { TbCategory } from "react-icons/tb";
 
 const DashboardSidebar = () => {
   return (
@@ -25,15 +26,15 @@ const DashboardSidebar = () => {
             icon={<FiInbox />}
             text="Inbox"
           />
-          {/* <SidebarItem
-            link="/dashboard/users"
-            icon={<FiUsers />}
-            text="Users"
-          /> */}
           <SidebarItem
             link="/dashboard/customers"
             icon={<FiUsers />}
             text="Customers"
+          />
+          <SidebarItem
+            link="/dashboard/categories"
+            icon={<TbCategory />}
+            text="Categories"
           />
           <SidebarItem
             link="/dashboard/products"

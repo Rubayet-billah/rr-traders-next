@@ -1,13 +1,12 @@
 import React, { Dispatch, SetStateAction } from "react";
-import AddProductModalContent from "./AddProductModalContent";
-import AddCategoryModalContent from "../category/AddCategoryModalContent";
+import AddCategoryModalContent from "./AddCategoryModalContent";
 
 interface ProductActionBarProps {
   setModalState: Dispatch<SetStateAction<boolean>>;
   setModalContent: Dispatch<SetStateAction<any>>;
 }
 
-const ProductActionBar = ({
+const CategoryActionBar = ({
   setModalState,
   setModalContent,
 }: ProductActionBarProps) => {
@@ -55,16 +54,10 @@ const ProductActionBar = ({
           >
             Add Category
           </button>
-          <button
-            onClick={() => handleAddProduct(<AddProductModalContent />)}
-            className="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded text-sm px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800 uppercase block"
-          >
-            Add Product
-          </button>
         </div>
       </div>
     </div>
   );
 };
 
-export default ProductActionBar;
+export default CategoryActionBar;

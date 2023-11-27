@@ -10,11 +10,6 @@ const CategoryActionBar = ({
   setModalState,
   setModalContent,
 }: ProductActionBarProps) => {
-  const handleAddProduct = (content: React.ReactElement) => {
-    setModalState(true);
-    setModalContent({ title: "Add New Product", content });
-  };
-
   const handleAddCategory = (content: React.ReactElement) => {
     setModalState(true);
     setModalContent({ title: "Add New Category", content });

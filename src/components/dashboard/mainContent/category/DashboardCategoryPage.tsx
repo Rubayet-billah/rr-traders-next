@@ -1,5 +1,4 @@
 "use client";
-
 import React, { useState } from "react";
 import CategoryActionBar from "./CategoryActionBar";
 import CategoryTable from "./CategoryTable";
@@ -11,6 +10,7 @@ const DashboardCategoryPage = () => {
     title: "Modal Title",
     content: <></>,
   });
+
   return (
     <div>
       <CategoryActionBar

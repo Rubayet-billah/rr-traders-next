@@ -9,7 +9,7 @@ type InputSelectProps = {
   pattern?: string;
   onChange?: (value: string) => void; // Add onChange prop
   label: string;
-  options: { value: string; label: string }[];
+  options: { value: string | number; label: string }[];
   register: any;
   required?: boolean;
 };
@@ -42,7 +42,7 @@ const FormInputSelect: React.FC<InputSelectProps> = ({
         <option disabled={true} selected={true}>
           Select {label.toLowerCase()}
         </option>
-        {options.map((option) => (
+        {options?.map((option) => (
           <option key={option.value} value={option.value}>
             {option.label}
           </option>

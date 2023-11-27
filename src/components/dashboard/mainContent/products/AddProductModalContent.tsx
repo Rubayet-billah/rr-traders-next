@@ -3,6 +3,8 @@ import FormInput from "@/components/utils/forms/FormInput";
 import FormInputFile from "@/components/utils/forms/FormInputFile";
 import FormInputSelect from "@/components/utils/forms/FormInputSelect";
 import FormTextArea from "@/components/utils/forms/FormTextArea";
+import { useGetAllCategoriesQuery } from "@/redux/features/category/categoryApi";
+import { createCategoryDropdown } from "@/utils/functions";
 import React from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 
@@ -20,13 +22,9 @@ const AddProductModalContent = () => {
     formState: { errors },
   } = useForm<Inputs>();
   const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data);
+  const { data } = useGetAllCategoriesQuery();
 
-  const options = [
-    { value: "TV", label: "TV/Monitors" },
-    { value: "PC", label: "PC" },
-    { value: "GA", label: "Gaming/Console" },
-    { value: "PH", label: "Phones" },
-  ];
+  const options = createCategoryDropdown(data?.data);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="p-4 md:p-5">
@@ -63,13 +61,21 @@ const AddProductModalContent = () => {
           />
         </div>
         <div className="col-span-2">
-          <FormInputFile
+          <FormInput
+            type="text"
+            name="image"
+            id="image"
+            label="Product Image URL"
+            required
+            register={register}
+          />
+          {/* <FormInputFile
             name="image"
             id="image"
             label="Product Image"
             required
             register={register}
-          />
+          /> */}
         </div>
         <div className="col-span-2">
           <FormTextArea

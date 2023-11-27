@@ -1,3 +1,5 @@
+import { ICategory } from "@/interfaces/common";
+
 export const setItemToLocalstorage = (key: string, value: any): void => {
   if (typeof window !== "undefined") {
     localStorage.setItem(key, JSON.stringify(value));
@@ -22,4 +24,11 @@ export const clearLocalstorage = (): void => {
   if (typeof window !== "undefined") {
     localStorage.clear();
   }
+};
+
+export const createCategoryDropdown = (categories: ICategory[]) => {
+  return categories?.map((category) => ({
+    value: category.id,
+    label: category.categoryName,
+  }));
 };

@@ -1,17 +1,26 @@
-import React from "react";
+import React, { Dispatch, SetStateAction } from "react";
+import { ICategory } from "@/interfaces/common";
+import { useGetAllCategoriesQuery } from "@/redux/features/category/categoryApi";
+import EditCategoryModalContent from "./EditCategoryModalContent";
 
-const CategoryTable = () => {
-  // Dummy categories data for demonstration
-  const categories = [
-    {
-      id: 2,
-      categoryName: "Tin",
-      categoryDescription: "Well structured",
-      createdAt: "2023-11-27T14:42:54.263Z",
-      updatedAt: "2023-11-27T14:42:54.263Z",
-    },
-    // Add other category objects here...
-  ];
+interface ProductActionBarProps {
+  setModalState: Dispatch<SetStateAction<boolean>>;
+  setModalContent: Dispatch<SetStateAction<any>>;
+}
+
+const CategoryTable = ({
+  setModalState,
+  setModalContent,
+}: ProductActionBarProps) => {
+  const { data } = useGetAllCategoriesQuery();
+
+  const displayEditCategoryModal = () => {
+    setModalState(true);
+    setModalContent({
+      title: "Update Category",
+      content: <EditCategoryModalContent />,
+    });
+  };
   return (
     <div>
       <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
@@ -28,12 +37,12 @@ const CategoryTable = () => {
                 Created At
               </th>
               <th scope="col" className="px-6 py-3">
-                Updated At
+                Action
               </th>
             </tr>
           </thead>
           <tbody>
-            {categories.map((category) => (
+            {data?.data?.map((category: ICategory) => (
               <tr
                 key={category.id}
                 className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
@@ -43,7 +52,11 @@ const CategoryTable = () => {
                 </td>
                 <td className="px-6 py-4">{category.categoryDescription}</td>
                 <td className="px-6 py-4">{category.createdAt}</td>
-                <td className="px-6 py-4">{category.updatedAt}</td>
+                <td className="px-6 py-4">
+                  <button onClick={() => displayEditCategoryModal()}>
+                    Edit
+                  </button>
+                </td>
               </tr>
             ))}
           </tbody>

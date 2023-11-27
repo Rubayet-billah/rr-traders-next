@@ -10,7 +10,7 @@ import { authKey } from "@/utils/constants";
 import { setItemToLocalstorage } from "@/utils/functions";
 import { setUser } from "@/redux/features/user/userSlice";
 import { useDispatch } from "react-redux";
-import { User } from "@/interfaces/common";
+import { IUser } from "@/interfaces/common";
 
 type Inputs = {
   email: string;

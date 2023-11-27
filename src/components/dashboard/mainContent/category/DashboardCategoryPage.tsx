@@ -17,7 +17,10 @@ const DashboardCategoryPage = () => {
         setModalState={setModalState}
         setModalContent={setModalContent}
       />
-      <CategoryTable />
+      <CategoryTable
+        setModalState={setModalState}
+        setModalContent={setModalContent}
+      />
       <ReusableModal
         modalState={modalState}
         setModalState={setModalState}

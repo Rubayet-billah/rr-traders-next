@@ -7,11 +7,19 @@ export interface ReusableModalProps {
   setModalContent?: Dispatch<SetStateAction<any>>;
 }
 
-export interface User {
+export interface IUser {
   userId: string;
   email: string;
   firstName: string;
   lastName: string;
   role: string;
   // Add other properties as needed
+}
+
+export interface ICategory {
+  id: number;
+  categoryName: string;
+  categoryDescription: string;
+  createdAt: string;
+  updatedAt: string;
 }

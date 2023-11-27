@@ -5,10 +5,20 @@ import { Avatar, Dropdown, Navbar } from "flowbite-react";
 import brandLogo from "../../assests/rr-traders-logo.png";
 import Image from "next/image";
 import Link from "next/link";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { ENUM_USER_ROLE } from "@/enums/user";
+import { removeItemFromLocalstorage } from "@/utils/functions";
+import { authKey } from "@/utils/constants";
+import { removeUser } from "@/redux/features/user/userSlice";
 
 const Header = () => {
   const { user } = useSelector((state: any) => state.user);
+  const dispatch = useDispatch();
+
+  const handleLogout = () => {
+    dispatch(removeUser());
+    removeItemFromLocalstorage(authKey);
+  };
   return (
     <div className="sticky top-0 z-10 shadow">
       <Navbar fluid>
@@ -46,7 +56,10 @@ const Header = () => {
               <Dropdown.Item>Settings</Dropdown.Item>
               <Dropdown.Item>Earnings</Dropdown.Item>
               <Dropdown.Divider />
-              <Dropdown.Item>Sign out</Dropdown.Item>
+              <Dropdown.Item>
+                {" "}
+                <button onClick={() => handleLogout()}>Sign out</button>{" "}
+              </Dropdown.Item>
             </Dropdown>
             <Navbar.Toggle />
           </div>
@@ -70,9 +83,11 @@ const Header = () => {
           <Navbar.Link className="uppercase lg:mx-3">
             <Link href="/cart">Cart</Link>
           </Navbar.Link>
-          <Navbar.Link className="uppercase lg:mx-3">
-            <Link href="/dashboard">Dashboard</Link>
-          </Navbar.Link>
+          {user?.role === ENUM_USER_ROLE.ADMIN && (
+            <Navbar.Link className="uppercase lg:mx-3">
+              <Link href="/dashboard">Dashboard</Link>
+            </Navbar.Link>
+          )}
           <Navbar.Link className="uppercase lg:mx-3" href="#">
             {" "}
             <Dropdown label="PRODUCTS" dismissOnClick={false} inline>

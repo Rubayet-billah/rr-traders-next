@@ -16,11 +16,6 @@ const ProductActionBar = ({
     setModalContent({ title: "Add New Product", content });
   };
 
-  const handleAddCategory = (content: React.ReactElement) => {
-    setModalState(true);
-    setModalContent({ title: "Add New Category", content });
-  };
-
   return (
     <div>
       <div className="md:flex items-center justify-between mb-4 lg:mb-8 space-y-4">

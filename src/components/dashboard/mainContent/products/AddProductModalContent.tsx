@@ -4,9 +4,11 @@ import FormInputFile from "@/components/utils/forms/FormInputFile";
 import FormInputSelect from "@/components/utils/forms/FormInputSelect";
 import FormTextArea from "@/components/utils/forms/FormTextArea";
 import { useGetAllCategoriesQuery } from "@/redux/features/category/categoryApi";
+import { useCreateProductMutation } from "@/redux/features/product/productApi";
 import { createCategoryDropdown } from "@/utils/functions";
 import React from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
+import toast from "react-hot-toast";
 
 type Inputs = {
   name: string;
@@ -16,15 +18,25 @@ type Inputs = {
 };
 
 const AddProductModalContent = () => {
+  const { data } = useGetAllCategoriesQuery();
+  const [createProduct] = useCreateProductMutation();
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<Inputs>();
-  const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data);
-  const { data } = useGetAllCategoriesQuery();
 
   const options = createCategoryDropdown(data?.data);
+
+  const onSubmit: SubmitHandler<Inputs> = async (data) => {
+    const result = await createProduct(data);
+    if ("error" in result) {
+      toast.error("Error while creating product");
+    }
+    if ("data" in result) {
+      toast.success(result?.data?.data.message);
+    }
+  };
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="p-4 md:p-5">
@@ -51,8 +63,8 @@ const AddProductModalContent = () => {
         </div>
         <div className="col-span-2 sm:col-span-1 ">
           <FormInputSelect
-            name="category"
-            id="category"
+            name="categoryId"
+            id="categoryId"
             label="Category"
             placeholder="Select category"
             options={options}
@@ -78,12 +90,31 @@ const AddProductModalContent = () => {
           /> */}
         </div>
         <div className="col-span-2">
+          <FormInput
+            type="number"
+            name="inStockQuantity"
+            id="inStockQuantity"
+            label="Product QTY"
+            required
+            register={register}
+          />
+        </div>
+        <div className="col-span-2">
           <FormTextArea
-            id="product_description"
+            id="description"
             label="Product Description"
-            name="product_description"
+            name="description"
             register={register}
             required
+          />
+        </div>
+        <div className="col-span-2">
+          <FormInput
+            type="checkbox"
+            name="featured"
+            id="featured"
+            label="Featured"
+            register={register}
           />
         </div>
       </div>

@@ -8,6 +8,7 @@ import toast from "react-hot-toast";
 
 type Inputs = {
   categoryName: string;
+  categoryImage: string;
   categoryDescription: string;
 };
 

@@ -24,3 +24,16 @@ export interface ICategory {
   createdAt: string;
   updatedAt: string;
 }
+
+export interface IProduct {
+  id: number;
+  name: string;
+  categoryId: number;
+  price: string;
+  inStockQuantity: number;
+  image?: string | null;
+  description: string;
+  featured: boolean;
+  createdAt: Date;
+  updatedAt: Date;
+}

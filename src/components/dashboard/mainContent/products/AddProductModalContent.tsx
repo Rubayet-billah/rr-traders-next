@@ -18,7 +18,7 @@ type Inputs = {
 };
 
 const AddProductModalContent = () => {
-  const { data } = useGetAllCategoriesQuery();
+  const { data } = useGetAllCategoriesQuery({});
   const [createProduct] = useCreateProductMutation();
   const {
     register,

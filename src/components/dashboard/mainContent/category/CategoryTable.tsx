@@ -12,13 +12,13 @@ const CategoryTable = ({
   setModalState,
   setModalContent,
 }: ProductActionBarProps) => {
-  const { data } = useGetAllCategoriesQuery();
+  const { data } = useGetAllCategoriesQuery({});
 
-  const displayEditCategoryModal = () => {
+  const displayEditCategoryModal = (content: any) => {
     setModalState(true);
     setModalContent({
       title: "Update Category",
-      content: <EditCategoryModalContent />,
+      content,
     });
   };
   return (
@@ -53,7 +53,20 @@ const CategoryTable = ({
                 <td className="px-6 py-4">{category.categoryDescription}</td>
                 <td className="px-6 py-4">{category.createdAt}</td>
                 <td className="px-6 py-4">
-                  <button onClick={() => displayEditCategoryModal()}>
+                  <button
+                    onClick={() =>
+                      displayEditCategoryModal(
+                        <EditCategoryModalContent
+                          categoryId={category?.id}
+                          initialValues={{
+                            categoryName: "",
+                            categoryImage: "",
+                            categoryDescription: "",
+                          }}
+                        />
+                      )
+                    }
+                  >
                     Edit
                   </button>
                 </td>

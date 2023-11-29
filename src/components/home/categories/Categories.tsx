@@ -3,9 +3,10 @@ import { useGetAllCategoriesQuery } from "@/redux/features/category/categoryApi"
 import SectionHeading from "../../utils/SectionHeading";
 import SectionPage from "../../utils/SectionPage";
 import CategoryCard from "./CategoryCard";
+import { ICategory } from "@/interfaces/common";
 
 const Categories = () => {
-  const { data: categoriesData } = useGetAllCategoriesQuery();
+  const { data: categoriesData } = useGetAllCategoriesQuery({});
   return (
     <div>
       <SectionHeading
@@ -14,16 +15,9 @@ const Categories = () => {
       />
       <SectionPage>
         <section className="grid grid-cols-1 md:grid-cold-2 lg:grid-cols-3 gap-6 lg:gap-12">
-          {categoriesData?.data?.map((category) => (
+          {categoriesData?.data?.map((category: ICategory) => (
             <CategoryCard key={category?.id} category={category} />
           ))}
-          {/* <CategoryCard />
-          <CategoryCard />
-          <CategoryCard />
-          <CategoryCard />
-          <CategoryCard />
-          <CategoryCard />
-          <CategoryCard /> */}
         </section>
       </SectionPage>
     </div>

@@ -19,6 +19,7 @@ export interface IUser {
 export interface ICategory {
   id: number;
   categoryName: string;
+  categoryImage: string;
   categoryDescription: string;
   createdAt: string;
   updatedAt: string;

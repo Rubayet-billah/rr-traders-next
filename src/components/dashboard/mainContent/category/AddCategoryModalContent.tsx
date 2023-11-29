@@ -1,16 +1,20 @@
 "use client";
-import React from "react";
+import React, { Dispatch, SetStateAction } from "react";
 import FormInput from "@/components/utils/forms/FormInput";
 import { SubmitHandler, useForm } from "react-hook-form";
 import FormTextArea from "@/components/utils/forms/FormTextArea";
 import { useCreateCategoryMutation } from "@/redux/features/category/categoryApi";
 import toast from "react-hot-toast";
 
+type IAddCategoryModalProps = {
+  setModalState: Dispatch<SetStateAction<boolean>>;
+};
+
 type Inputs = {
   categoryName: string;
 };
 
-const AddCategoryModalContent = () => {
+const AddCategoryModalContent = ({ setModalState }: IAddCategoryModalProps) => {
   const {
     register,
     handleSubmit,
@@ -27,6 +31,7 @@ const AddCategoryModalContent = () => {
 
     if ("data" in result) {
       toast.success(result.data.message);
+      setModalState(false);
     }
   };
 
@@ -39,6 +44,16 @@ const AddCategoryModalContent = () => {
             name="categoryName"
             id="categoryName"
             label="Category Name"
+            required
+            register={register}
+          />
+        </div>
+        <div className="col-span-2">
+          <FormInput
+            type="text"
+            name="categoryImage"
+            id="categoryImage"
+            label="Category Image URL"
             required
             register={register}
           />

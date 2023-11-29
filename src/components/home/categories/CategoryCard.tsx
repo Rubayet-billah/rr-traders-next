@@ -1,10 +1,16 @@
 "use client";
-import { Card } from "flowbite-react";
+import React from "react";
+import { ICategory } from "@/interfaces/common";
 
-const CategoryCard = () => {
-  const categoryImage =
-    "https://loowera.com/uploads/media/o_1h5n47fr2p4ike51bkhk0v14s8a.jpg"; // Replace with your image URL
-  const categoryName = "Sanitary"; // Replace with your category name
+type ICategoryCardProps = {
+  category: ICategory;
+};
+
+const CategoryCard = ({ category }: ICategoryCardProps) => {
+  const { categoryName, categoryImage, categoryDescription } = category;
+  // const categoryImage =
+  //   "https://loowera.com/uploads/media/o_1h5n47fr2p4ike51bkhk0v14s8a.jpg";
+  // const categoryName = "Sanitary";
 
   return (
     <>
@@ -14,15 +20,18 @@ const CategoryCard = () => {
       >
         <img
           className="object-cover w-full rounded-t h-96 md:h-auto md:w-48 md:rounded-none md:rounded-l"
-          src="https://loowera.com/uploads/media/o_1h5n47fr2p4ike51bkhk0v14s8a.jpg"
-          alt=""
+          src={
+            // categoryImage ||
+            "https://loowera.com/uploads/media/o_1h5n47fr2p4ike51bkhk0v14s8a.jpg"
+          }
+          alt={categoryName}
         />
         <div className="flex flex-col justify-between p-4 leading-normal">
           <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-            Sanitary
+            {categoryName}
           </h5>
           <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
-            Luxurious and Fasionable Sanitary Wares
+            {categoryDescription}
           </p>
         </div>
       </a>

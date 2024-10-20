@@ -2,13 +2,15 @@ import Image from "next/image";
 import sanitaryImage from "../../../assests/sanitary-item-image.jpg";
 import rodImage from "../../../assests/iron-rod-image.jpeg";
 import roofingTinImage from "../../../assests/roofing-tin.jpg";
-import bgImage from "../../../assests/banner-bg.png";
+import paintingCan from "../../../assests/paint-can.jpg";
+import bgImage from "../../../assests/bg-image.jpg";
 
 const Banner = () => {
   return (
     <div
       className="relative bg-[#434e57] py-12 pb-64"
       style={{
+        backgroundImage: `url(${bgImage.src})`,
         clipPath: "polygon(0 0, 100% 0, 100% 80%, 0% 100%)",
       }}
     >
@@ -45,7 +47,7 @@ const Banner = () => {
           <div>
             <Image
               className="brightness-75"
-              src={roofingTinImage}
+              src={paintingCan}
               // src="https://tileo-theme.myshopify.com/cdn/shop/files/tiles-v4_3_600x.png?v=1636529810"
               alt=""
               height={600}
